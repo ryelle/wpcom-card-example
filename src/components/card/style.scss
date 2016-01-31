@@ -1,1 +1,63 @@
+.card {
+	width: 380px;
+	border-radius: 7px;
+}
 
+.card-header {
+	padding-bottom: 30px;
+	background-color: #2E4453;
+	border-radius: 7px 7px 0 0;
+
+	color: white;
+	text-align: center;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.card-body {
+	background-color: white;
+	box-shadow: 0 0 6px rgba( #3D596D, 0.15 );
+	border-radius: 0 0 7px 7px;
+}
+
+.profile-image {
+	margin: 50px 0 25px;
+	text-align: center;
+}
+
+.profile-image img {
+	margin-top: -50px;
+	border-radius: 50%;
+	border: 3px solid #F3F6F8;
+}
+
+.site-url {
+	color: #8FA5B5;
+	font-size: 12px;
+}
+
+.stats-list {
+	display: flex;
+
+	li {
+		display: block;
+		flex: 1 33.33333%;
+		padding: 20px;
+		text-align: center;
+	}
+}
+
+.stats-number {
+	margin: 0 0 5px;
+	font-size: 24px;
+	color: #0087BE;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.stats-label {
+	font-size: 10px;
+	text-transform: uppercase;
+	letter-spacing: 1.5;
+	color: #A8BECE;
+}

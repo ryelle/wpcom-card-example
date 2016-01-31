@@ -1,0 +1,33 @@
+body {
+	background: #F3F6F8;
+
+	font-family: Open Sans, sans-serif;
+}
+
+* {
+	box-sizing: border-box;
+	line-height: 1;
+}
+
+h1 {
+	margin: 0 0 10px;
+	font-family: Merriweather, serif;
+	font-size: 22px;
+	font-weight: 600;
+}
+
+ul, li, p {
+	margin: 0;
+	padding: 0;
+}
+
+img {
+	vertical-align: middle;
+}
+
+.profile-view {
+	height: 100vh;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+}

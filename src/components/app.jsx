@@ -54,7 +54,7 @@ let App = React.createClass( {
 		}
 
 		return (
-			<div className='thumbnail-list'>
+			<div className='profile-view'>
 				{ content }
 			</div>
 		);

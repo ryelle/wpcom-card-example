@@ -32,8 +32,12 @@
 }
 
 .site-url {
-	color: #8FA5B5;
 	font-size: 12px;
+
+	a:link, a:visited, a:hover, a:active {
+		color: #8FA5B5;
+		text-decoration: none;
+	}
 }
 
 .stats-list {
@@ -41,7 +45,7 @@
 
 	li {
 		display: block;
-		flex: 1 33.33333%;
+		flex: 1 100%;
 		padding: 20px;
 		text-align: center;
 	}

@@ -100,7 +100,7 @@ let Profile = React.createClass( {
 				<div className='card-header'>
 					<Avatar url={ profile.avatar_URL } />
 					<h1>{ profile.display_name }</h1>
-					<div className='site-url'>{ profile.primary_blog_url }</div>
+					<div className='site-url'><a href={ profile.primary_blog_url }>{ profile.primary_blog_url }</a></div>
 				</div>
 				<div className='card-body'>
 					{ this.renderStats() }

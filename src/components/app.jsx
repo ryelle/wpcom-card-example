@@ -14,6 +14,7 @@ let App = React.createClass( {
 		return {
 			fetching: true,
 			profile: false,
+			authKey: false,
 		};
 	},
 
@@ -22,17 +23,18 @@ let App = React.createClass( {
 			let wpcom = require( 'wpcom' )( auth.access_token );
 			let me = wpcom.me();
 
-			me.get().then( ( data ) => {
-				console.log( data );
+			me.get( { meta: 'flags' } ).then( ( data ) => {
 				this.setState( {
 					fetching: false,
 					profile: data,
+					authKey: auth.access_token
 				} );
 			} ).catch( ( error ) => {
 				console.warn( error );
 				this.setState( {
 					fetching: false,
 					profile: false,
+					authKey: false,
 				} );
 			} );
 		} );
@@ -50,7 +52,7 @@ let App = React.createClass( {
 		if ( ! this.state.profile && this.state.fetching ) {
 			content = this.renderWaiting();
 		} else if ( ! this.state.fetching && false !== this.state.profile ) {
-			content = <Profile { ...this.state.profile } />
+			content = <Profile { ...this.state.profile } authKey={ this.state.authKey } />
 		}
 
 		return (

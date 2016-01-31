@@ -3,7 +3,9 @@ import React from 'react';
 
 let Stat = React.createClass( {
 	render: function() {
-		let profile = this.props;
+		if ( false === this.props.number ) {
+			return null;
+		}
 		return (
 			<li className='stats'>
 				<div className='stats-number'>{ this.props.number }</div>

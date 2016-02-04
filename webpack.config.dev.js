@@ -16,7 +16,7 @@ module.exports = {
 	resolve: {
 		extensions: [ '', '.js', '.jsx', '.json' ],
 		alias: {
-			'images': path.resolve( __dirname, 'images' ),
+			'config': path.resolve( __dirname, 'config/default' ),
 		}
 	},
 	plugins: [

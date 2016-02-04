@@ -2,7 +2,7 @@
 import React from 'react';
 
 // App settings
-import settings from '../../settings';
+import settings from 'config';
 
 // Local components
 import Profile from './card';

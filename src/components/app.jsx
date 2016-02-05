@@ -7,7 +7,7 @@ import settings from 'config';
 // Local components
 import Profile from './card';
 
-var wpcomOAuth = require('wpcom-oauth-cors')( settings.clientId, { scope: settings.scope } );
+var wpcomOAuth = require('wpcom-oauth-cors')( settings.clientId, { scope: 'global' } );
 
 let App = React.createClass( {
 	getInitialState: function() {

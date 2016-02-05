@@ -48,11 +48,11 @@ let Profile = React.createClass( {
 	},
 
 	fetchBlogInfo: function() {
-		if ( ! this.props.primary_blog_url ) {
+		if ( ! this.props.primary_blog ) {
 			return;
 		}
 
-		let site = this.wpcom.site( this.props.primary_blog_url );
+		let site = this.wpcom.site( this.props.primary_blog );
 
 		return site.get();
 	},

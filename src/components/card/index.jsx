@@ -89,6 +89,7 @@ let Profile = React.createClass( {
 		return (
 			<div className='card'>
 				<div className='card-header'>
+					<Notification hasNew={ profile.has_unseen_notes } />
 					<Avatar url={ profile.avatar_URL } />
 					<h1>{ profile.display_name }</h1>
 					<div className='site-url'><a href={ profile.primary_blog_url }>{ profile.primary_blog_url }</a></div>

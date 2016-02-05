@@ -1,4 +1,5 @@
 .card {
+	position: relative;
 	width: 380px;
 	border-radius: 7px;
 }
@@ -64,4 +65,29 @@
 	text-transform: uppercase;
 	letter-spacing: 1.5;
 	color: #A8BECE;
+}
+
+.notification {
+	position: absolute;
+	top: 70px;
+	right: 20px;
+
+	svg {
+		fill: white;
+	}
+}
+
+.notification-bubble {
+	position: absolute;
+	top: -2px;
+	left: 50%;
+	z-index: 99999;
+	margin: 0 0 0 -12px;
+	padding: 0;
+	height: 12px;
+	width: 12px;
+
+	border: solid 2px #2E4453;
+	border-radius: 50%;
+	background: #F28200;
 }

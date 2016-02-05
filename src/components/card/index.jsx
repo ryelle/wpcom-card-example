@@ -26,48 +26,39 @@ let Profile = React.createClass( {
 
 		this.wpcom = require( 'wpcom' )( this.props.authKey );
 
-		this.fetchBlogInfo();
-		this.fetchReaderInfo();
-	},
-
-	fetchBlogInfo: function() {
-		if ( ! this.props.primary_blog_url ) {
+		Promise.all( [
+			this.fetchBlogInfo(),
+			this.fetchReaderInfo()
+		] ).then( ( data ) => {
+			this.setState( {
+				fetching: false,
+				followers: data[0] ? data[0].subscribers_count : false,
+				posts: data[0] ? data[0].post_count : false,
+				following: data[1] ? data[1].subscriptions.length : false,
+			} );
+		} ).catch( ( error ) => {
+			console.warn( error );
 			this.setState( {
 				fetching: false,
 				followers: false,
 				posts: false,
+				following: false,
 			} );
+		} );
+	},
+
+	fetchBlogInfo: function() {
+		if ( ! this.props.primary_blog_url ) {
 			return;
 		}
 
 		let site = this.wpcom.site( this.props.primary_blog_url );
 
-		site.get().then( ( data ) => {
-			this.setState( {
-				fetching: false,
-				followers: data.subscribers_count,
-				posts: data.post_count,
-			} );
-		} ).catch( ( error ) => {
-			console.warn( error );
-			this.setState( {
-				fetching: false,
-				followers: false,
-				posts: false,
-			} );
-		} );
+		return site.get();
 	},
 
 	fetchReaderInfo: function() {
-		let request = this.wpcom.req.get( '/read/following/mine' );
-
-		request.then( ( data ) => {
-			this.setState( {
-				following: data.subscriptions.length,
-			} );
-		} ).catch( ( error ) => {
-			console.warn( error );
-		} );
+		return this.wpcom.req.get( '/read/following/mine' );
 	},
 
 	renderStats: function() {

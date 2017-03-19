@@ -2,7 +2,6 @@ var path = require( 'path' );
 var webpack = require( 'webpack' );
 
 module.exports = {
-	devtool: 'cheap-module-eval-source-map',
 	entry: [
 		'eventsource-polyfill', // necessary for hot reloading with IE
 		'webpack-hot-middleware/client',
@@ -41,5 +40,8 @@ module.exports = {
 			test: /\.(jpe?g|png|gif|svg)$/i,
 			loader: 'file'
 		} ]
-	}
+	},
+	node: {
+		fs: 'empty'
+	},
 };
